@@ -51,7 +51,7 @@ const Payments = () => {
 			const updatedOrder = await apiFetch( {
 				path: `/wc/v3/orders/${ order.id }`,
 				method: 'PUT',
-				data: data,
+				data,
 				headers: {
 					'Content-Type': 'application/json',
 				},
