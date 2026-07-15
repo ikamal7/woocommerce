@@ -48,10 +48,15 @@ class MiniCartContents extends AbstractBlock {
 	/**
 	 * Get the frontend style handle for this block type.
 	 *
+	 * Note: mini-cart-contents.css is no longer emitted by the build (styles were
+	 * merged into the parent mini-cart block's stylesheet), so we must NOT call
+	 * parent::get_block_type_style() here — doing so would register and enqueue a
+	 * non-existent file, causing a 301/404 on every page that renders the block.
+	 *
 	 * @return string[]
 	 */
 	protected function get_block_type_style() {
-		return array_merge( parent::get_block_type_style(), [ 'wc-blocks-packages-style' ] );
+		return [ 'wc-blocks-style', 'wc-blocks-packages-style' ];
 	}
 
 	/**

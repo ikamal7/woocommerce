@@ -1,0 +1,4 @@
+Significance: patch
+Type: fix
+
+Mini Cart: stop enqueuing the non-existent mini-cart-contents.css stylesheet. The file is no longer built (styles were merged into the parent mini-cart block stylesheet in #65472), so its handle is removed from MiniCartContents::get_block_type_style() to prevent 301/404 requests on every page rendering the block.
